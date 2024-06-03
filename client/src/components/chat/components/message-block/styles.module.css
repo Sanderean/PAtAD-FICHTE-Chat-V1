@@ -1,6 +1,6 @@
 .messageBlock{
     padding: 20px;
-    height: 10vh;
+    height: 5vh;
 }
 
 .form{
@@ -21,6 +21,7 @@
 }
 
 .btn{
+    margin-left: 20px;
     width: 150px;
     background-color: green;
     padding: 10px;

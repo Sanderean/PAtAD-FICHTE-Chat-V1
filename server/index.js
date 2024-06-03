@@ -30,6 +30,26 @@ socketIO.on('connection', (socket) => {
 
     socket.on('typing', (data) => socket.broadcast.emit('responseTyping', data))
 
+    socket.on('createRoom', (roomName) => {
+        // Создаем объект комнаты
+        const newRoom = {
+          name: roomName,
+          members: [],
+          creator: socket.id, // Пока используем socket.id как идентификатор создателя
+          messages: [],
+        };
+        // Отправляем созданную комнату обратно клиенту
+        socketIO.emit('roomCreated', newRoom);
+      });
+
+      socket.on('joinRoom', (roomName) => {
+        socket.join(roomName);
+    });
+
+    socket.on('leaveRoom', (roomName) => {
+        socket.leave(roomName);
+    });
+
     socket.on('disconnect', () => {
         console.log(socket.id + ' disconnect')
     })

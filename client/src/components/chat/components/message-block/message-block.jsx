@@ -8,7 +8,7 @@ const MessageBlock = ({socket}) => {
 
     const handleSend = (e) => {
         e.preventDefault()
-        if(message.trim() && localStorage.getItem('user')){
+        if(message.trim()){
             socket.emit('message', {
                 text: message,
                 name: localStorage.getItem('user'),
@@ -22,7 +22,7 @@ const MessageBlock = ({socket}) => {
         <div className={styles.messageBlock} onSubmit={handleSend}>
             <form>
                 <input type="text" className={styles.userMessage} value={message} onChange={(e) => setMessage(e.target.value)}
-                onKeyDown={isTyping}/>
+                onKeyDown={isTyping} placeholder="Enter your message"/>
                 <button className={styles.btn}>Send</button>
             </form>
         </div>

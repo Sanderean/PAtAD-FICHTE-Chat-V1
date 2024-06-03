@@ -10,6 +10,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home socket={socket}/>}/>
         <Route path='/chat' element={<ChatPage socket={socket}/>}/>
+        <Route path='/chat/:roomName' element={<ChatPage socket={socket}/>}/>
       </Routes>
     </>
   )
